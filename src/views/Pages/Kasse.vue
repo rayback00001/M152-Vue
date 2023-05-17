@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const log = ref([
     {
@@ -50,6 +50,30 @@ function deleteLog(id) {
 
  }
 
+ const totalIncome = computed(()=>{
+    let sum = 0;
+    log.value.forEach(el =>{
+        if(el.value > 0){
+            sum+= el.value
+        }
+    })
+    return sum;
+ })
+
+  const totalOutcome = computed(()=>{
+    let sum = 0;
+    log.value.forEach(el =>{
+        if(el.value < 0){
+            sum+= el.value
+        }
+    })
+    return sum;
+ })
+
+ const totalSum = computed(()=>{
+    return totalIncome.value + totalOutcome.value
+ })
+
 </script>
 
 <template>
@@ -69,6 +93,14 @@ function deleteLog(id) {
             <td><button @click="deleteLog(logEntry.id)">Eintrag löschen</button></td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <td>Total</td>
+            <td>{{totalIncome}}</td>
+            <td>{{totalOutcome}}</td>
+            <td>{{totalSum}}</td>
+        </tr>
+    </tfoot>
 </table>
 
 <div class="wrapper">
