@@ -9,6 +9,9 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink to="/aufgabe1">Aufgabe 1</RouterLink>
       <RouterLink to="/aufgabe2">Aufgabe 2</RouterLink>
       <RouterLink to="/aufgabe12_2">Aufgabe 12.2</RouterLink>
+      <RouterLink to="/rwd">RWD</RouterLink>
+      <RouterLink to="/dialogform">Dialogform</RouterLink>
+      <RouterLink to="/kasse">Kasse</RouterLink>
     </nav>
   </header>
 
